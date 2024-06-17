@@ -1,14 +1,15 @@
-import { Pressable, Text, View } from "react-native"
+import { Pressable, Text } from "react-native"
 import type { AppEvent } from "../types.d.ts"
+import { EventPress, EventText, EventWrapper } from "./styles/EventItem.ts"
 
 const EventItem = ({ item: { name } }: { item: AppEvent }) => {
     return (
-        <View>
-            <Text>{name}</Text>
-            <Pressable>
-                <Text>Join</Text>
-            </Pressable>
-        </View>
+        <EventWrapper>
+            <EventText>{name}</EventText>
+            <EventPress>
+                <EventText>Join</EventText>
+            </EventPress>
+        </EventWrapper>
     )
 }
 
