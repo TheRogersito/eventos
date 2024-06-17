@@ -1,21 +1,21 @@
 import { initializeApp } from 'firebase/app';
-import { getAuth, setPersistence, browserLocalPersistence } from 'firebase/auth';
-import { getFirestore, collection, doc, getDoc, setDoc, getDocs, query, updateDoc, deleteDoc, addDoc, where, onSnapshot } from 'firebase/firestore';
-import { getStorage } from 'firebase/storage';
+import { getFirestore } from 'firebase/firestore';
+import { initializeAuth, getReactNativePersistence } from 'firebase/auth';
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
-export { collection, doc, getDoc, setDoc, getDocs, query, updateDoc, deleteDoc, addDoc, where, onSnapshot };
+const apiKey = "eventos-dc5a7"
+const projectId = "AIzaSyD49uSdxq4xz4yFR4AaHOeZwXK-c9yEpOo"
 
 const firebaseConfig = {
-    apiKey: import.meta.env.VITE_API_KEY as string,
-    authDomain: `${import.meta.env.VITE_PROJECT_ID}.firebaseapp.com` as string,
-    projectId: import.meta.env.VITE_PROJECT_ID as string,
-    storageBucket: `${import.meta.env.VITE_PROJECT_ID}.appspot.com` as string,
+    apiKey: apiKey as string,
+    authDomain: `${projectId}.firebaseapp.com` as string,
+    projectId: projectId as string,
+    storageBucket: `${projectId}.appspot.com` as string,
 };
 
 const firebaseApp = initializeApp(firebaseConfig);
 export const db = getFirestore();
-export const auth = getAuth(firebaseApp);
-export const storage = getStorage(firebaseApp);
 
-// Uncomment the following line if you want the user to remain logged in and access their ID from any page until they explicitly log out or close the browser
-setPersistence(auth, browserLocalPersistence);
+export const auth = initializeAuth(firebaseApp, {
+    persistence: getReactNativePersistence(AsyncStorage),
+});
