@@ -11,9 +11,9 @@ export const signUp = async (email: string, password: string): Promise<string> =
         const user = userCredential.user;
         const docRef = doc(db, 'users', user.uid);
         await setDoc(docRef, { id: user.uid, name: user.email });
-        alert('Usuario Registrado')
+        alert('Usuario Registrado');
         return user.uid;
-    } catch (err) {
+    } catch (err: { message: string }) {
         console.log(err.message)
         return err.message;
     }
@@ -24,7 +24,7 @@ export const signIn = async (email: string, password: string) => {
         const result = await signInWithEmailAndPassword(auth, email, password);
         alert('Usuario Logueado')
         return result.user.uid;
-    } catch (err) {
+    } catch (err: { message: string }) {
         console.log(err.message)
         return err.message;
     }

@@ -3,8 +3,8 @@ import { getFirestore } from 'firebase/firestore';
 import { initializeAuth, getReactNativePersistence } from 'firebase/auth';
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
-const apiKey = "eventos-dc5a7"
-const projectId = "AIzaSyD49uSdxq4xz4yFR4AaHOeZwXK-c9yEpOo"
+const apiKey = "AIzaSyD49uSdxq4xz4yFR4AaHOeZwXK-c9yEpOo"
+const projectId = "eventos-dc5a7"
 
 const firebaseConfig = {
     apiKey: apiKey as string,
