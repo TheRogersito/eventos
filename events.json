@@ -1,0 +1,44 @@
+{
+    "events": [
+        {
+            "id": "1",
+            "name": "First event",
+            "date": "01/07/2024",
+            "attendants": [
+                "1",
+                "2",
+                "3"
+            ]
+        },
+        {
+            "id": "2",
+            "name": "Second event",
+            "date": "01/07/2024",
+            "attendants": [
+                "1",
+                "2",
+                "4"
+            ]
+        },
+        {
+            "id": "3",
+            "name": "Third event",
+            "date": "01/07/2024",
+            "attendants": [
+                "4",
+                "5",
+                "6"
+            ]
+        },
+        {
+            "id": "4",
+            "name": "Fourth event",
+            "date": "02/07/2024",
+            "attendants": [
+                "1",
+                "2",
+                "3"
+            ]
+        }
+    ]
+}
