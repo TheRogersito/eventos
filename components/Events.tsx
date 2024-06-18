@@ -1,21 +1,31 @@
-import { useState } from "react"
-import { View, Text, FlatList } from "react-native"
+import { useEffect, useState } from "react"
+import { FlatList } from "react-native"
 
 import data from '../events.json'
 import EventItem from "./EventItem"
+import { Container, NewEventLink, Title } from "./styles/Events"
+import type { AppEvent } from "../types"
 
 const Events = () => {
-    const [events, setEvents] = useState([])
+    const [events, setEvents] = useState<AppEvent[]>([])
+
+    useEffect(() => {
+        setEvents(data.events)
+    }, [])
 
 
     return (
-        <View>
+        <Container>
+            <Title>Listado de eventos</Title>
             <FlatList
-                data={data.events}
+                data={events}
                 renderItem={EventItem}
                 keyExtractor={item => item.id}
             />
-        </View>
+            <NewEventLink href='/create'>
+                Create event
+            </NewEventLink>
+        </Container>
     )
 }
 
