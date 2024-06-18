@@ -7,11 +7,13 @@ const Stack = createStackNavigator();
 
 const _layout = () => {
     return (
-        <Stack.Navigator screenOptions={{
-            headerShown: false,
-        }}>
-            <Stack.Screen name='mainPage' component={MainPage} />
-            <Stack.Screen name='index' component={HomePage} />
+        <Stack.Navigator>
+            <Stack.Screen name='mainPage' component={MainPage} options={{
+                headerShown: false,
+            }} />
+            <Stack.Screen name='index' component={HomePage} options={{
+                headerShown: false,
+            }} />
         </Stack.Navigator>
     );
 };

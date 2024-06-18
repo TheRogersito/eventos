@@ -11,12 +11,13 @@ const Register = ({ navigation }) => {
     const [, setUser] = useUserContext()
 
     const registerAccess = async (userName: string, userPw: string) => {
-        try {
-            const uid = signUp(userName, userPw)
-            await setUser(getUserById(uid))
-            navigation.push('mainPage')
-        } catch (e) {
-            console.log(e)
+        const uid = await signUp(userName, userPw)
+        console.log(uid)
+        if (uid.substr(0, 8) === "Firebase") {
+            alert("Error al registrarse")
+        } else {
+            setUser(getUserById(uid))
+            await navigation.push('mainPage')
         }
     }
 
