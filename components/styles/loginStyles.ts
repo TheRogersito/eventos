@@ -5,12 +5,12 @@ export const GrayBox = styled(View)`
 background-color: lightgray;
 border-radius: 16px;
 padding: 16px;
-    text-align: center;
-    font-size: 3rem;
+text-align: center;
+font-size: 3rem;
 `
 export const RegisterTitle = styled(Text)`
 text-align: center;
-    font-size: 26;
+font-size: 26px;
 `
 
 export const InputLogin = styled(TextInput)`
