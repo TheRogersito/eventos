@@ -1,18 +1,22 @@
 import { useEffect, useState } from "react"
 import { FlatList } from "react-native"
-
-import data from '../events.json'
 import EventItem from "./EventItem"
-import { Container, NewEventLink, Title } from "./styles/Events"
+import { Container, Title } from "./styles"
+import { NewEventLink } from "./styles/Events"
 import type { AppEvent } from "../types"
+import { getEvents } from "../api/events"
 
 const Events = () => {
     const [events, setEvents] = useState<AppEvent[]>([])
 
     useEffect(() => {
-        setEvents(data.events)
+        getEventList()
     }, [])
 
+    const getEventList = async () => {
+        const list = await getEvents()
+        setEvents(list)
+    }
 
     return (
         <Container>

@@ -1,4 +1,4 @@
-import { db } from "./firebase";
+import { db, getArrayFromCollection } from "./firebase";
 import { doc, getDoc, getDocs, collection, updateDoc, deleteDoc, addDoc, query, where } from "firebase/firestore";
 
 const collectionName = 'users';
@@ -23,10 +23,4 @@ export const getUserById = async (id: string) => {
 export const deleteUser = async (id: string) => {
     const docRef = doc(db, collectionName, id);
     await deleteDoc(docRef);
-}
-
-const getArrayFromCollection = (collection: { docs: { map: Function } }) => {
-    return collection.docs.map((doc: { data: Function, id: string }) => {
-        return { ...doc.data(), id: doc.id };
-    });
 }

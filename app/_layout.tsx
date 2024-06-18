@@ -1,19 +1,18 @@
 import { createStackNavigator } from '@react-navigation/stack';
 import HomePage from './index';
 import MainPage from './mainPage';
-import { View } from 'react-native';
+import CreateEvent from './create';
 
 const Stack = createStackNavigator();
 
 const _layout = () => {
     return (
-        <Stack.Navigator>
-            <Stack.Screen name='mainPage' component={MainPage} options={{
-                headerShown: false,
-            }} />
-            <Stack.Screen name='index' component={HomePage} options={{
-                headerShown: false,
-            }} />
+        <Stack.Navigator screenOptions={{
+            headerShown: false,
+        }}>
+            <Stack.Screen name='index' component={HomePage} />
+            <Stack.Screen name='mainPage' component={MainPage} />
+            <Stack.Screen name='create' component={CreateEvent} />
         </Stack.Navigator>
     );
 };

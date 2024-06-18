@@ -2,7 +2,7 @@ import { useState } from "react";
 import { signIn } from "../api/access";
 import { Text, Pressable } from "react-native";
 import { InputLogin, GrayBox, RegisterTitle } from './styles/loginStyles';
-import { useUserContext } from "./providers/UserProvider";
+import { useUserContext } from "../providers/UserProvider";
 import { getUserById } from '../api/users';
 import { router } from 'expo-router';
 
