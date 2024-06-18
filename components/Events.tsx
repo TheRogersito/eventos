@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { FlatList } from "react-native"
 import EventItem from "./EventItem"
 import { Container, Title } from "./styles"
-import { NewEventLink } from "./styles/Events"
+import { NewEventLink, ProfileLink } from './styles/Events';
 import type { AppEvent } from "../types"
 import { getEvents } from "../api/events"
 
@@ -20,6 +20,7 @@ const Events = () => {
 
     return (
         <Container>
+            <ProfileLink href="/profile">FESFW</ProfileLink>
             <Title>Listado de eventos</Title>
             <FlatList
                 data={events}

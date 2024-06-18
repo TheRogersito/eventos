@@ -25,7 +25,7 @@ const Register = ({ navigation }) => {
         <GrayBox>
             <RegisterTitle>Registro</RegisterTitle>
             <InputLogin value={userName} onChangeText={e => setUsername(e)} />
-            <InputLogin value={userPw} onChangeText={e => setPwname(e)} />
+            <InputLogin secureTextEntry={true} value={userPw} onChangeText={e => setPwname(e)} />
             <Pressable onPress={() => registerAccess(userName, userPw)}><Text>Registrate</Text></Pressable>
         </GrayBox>
     );

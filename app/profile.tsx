@@ -1,8 +1,8 @@
 import { View, Text } from "react-native";
-import { useUserContext } from "./providers/UserProvider";
+import { useUserContext } from "../providers/UserProvider";
 
 const Profile = () => {
-    const [user, setUser] = useUserContext()
+    const [user] = useUserContext()
 
     return (
         <View>

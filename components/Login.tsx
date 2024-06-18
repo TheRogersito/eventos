@@ -4,7 +4,6 @@ import { Text, Pressable } from "react-native";
 import { InputLogin, GrayBox, RegisterTitle } from './styles/loginStyles';
 import { useUserContext } from "../providers/UserProvider";
 import { getUserById } from '../api/users';
-import { router } from 'expo-router';
 
 const Login = ({ navigation }) => {
     const [userName, setUsername] = useState('')
@@ -27,7 +26,7 @@ const Login = ({ navigation }) => {
         <GrayBox>
             <RegisterTitle>Login</RegisterTitle>
             <InputLogin value={userName} onChangeText={e => setUsername(e)} />
-            <InputLogin value={userPw} onChangeText={e => setPwname(e)} />
+            <InputLogin secureTextEntry={true} value={userPw} onChangeText={e => setPwname(e)} />
             <Pressable onPress={() => loginAccess(userName, userPw)}><Text>Entrar</Text></Pressable>
         </GrayBox>
     );
