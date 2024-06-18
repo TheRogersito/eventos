@@ -1,6 +1,6 @@
 import { createContext, useState, useContext } from 'react';
 
-const AppContext = createContext([undefined, () => { }])
+const AppContext = createContext([undefined, (userData) => { }])
 export const useUserContext = () => useContext(AppContext);
 
 const UserProvider = ({ children }: { children: any }) => {
