@@ -1,9 +1,16 @@
-import { Text } from "react-native"
-import Events from "../components/Events"
+import Access from "../components/Access"
+import { View } from "react-native"
 
-const HomePage = () => {
+const HomePage = ({ navigation }) => {
     return (
-        <Events />
+        <View style={{
+            flex: 1,
+            backgroundColor: '#fff',
+            alignItems: 'center',
+            justifyContent: 'center',
+        }}>
+            <Access navigation={navigation} />
+        </View>
     )
 }
 
