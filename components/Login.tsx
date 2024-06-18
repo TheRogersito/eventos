@@ -2,7 +2,7 @@ import { useState } from "react";
 import { signIn } from "../api/access";
 import { View, Text, Pressable } from "react-native";
 import { InputLogin, GrayBox, RegisterTitle } from './styles/loginStyles';
-import { useUserContext } from "./providers/UserProvider";
+import { useUserContext } from "../providers/UserProvider";
 
 const Login = () => {
     const [userName, setUsername] = useState('')
