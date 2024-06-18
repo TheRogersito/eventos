@@ -2,7 +2,7 @@ import { Text, View } from 'react-native';
 import styled from 'styled-components';
 
 export const Container = styled(View)`
-    margin: 10px;
+    margin-top: 100px;
     height: 100%;
     position: relative;
 `

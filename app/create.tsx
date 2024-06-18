@@ -1,13 +1,13 @@
 import { View } from "react-native"
 import UserInput from "../components/UserInput"
-import { Title } from "../components/styles"
+import { Container, Title } from "../components/styles"
 
 const CreateEvent = () => {
     return (
-        <View>
+        <Container>
             <Title>Crear nuevo evento</Title>
             <UserInput label="Nombre del evento" />
-        </View>
+        </Container>
     )
 }
 
