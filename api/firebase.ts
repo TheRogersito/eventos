@@ -1,5 +1,5 @@
 import { initializeApp } from 'firebase/app';
-import { getFirestore } from 'firebase/firestore';
+import { getFirestore, doc, collection } from 'firebase/firestore';
 import { initializeAuth, getReactNativePersistence } from 'firebase/auth';
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
@@ -19,3 +19,9 @@ export const db = getFirestore();
 export const auth = initializeAuth(firebaseApp, {
     persistence: getReactNativePersistence(AsyncStorage),
 });
+
+export const getArrayFromCollection = (collection: { docs: { map: Function } }) => {
+    return collection.docs.map((doc: { data: Function, id: string }) => {
+        return { ...doc.data(), id: doc.id };
+    });
+}
