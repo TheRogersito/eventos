@@ -8,6 +8,7 @@ export const EventWrapper = styled(View)`
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
+    margin: 5px 0;
 `
 
 export const EventText = styled(Text)`
