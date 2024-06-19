@@ -10,7 +10,7 @@ export const signUp = async (email: string, password: string): Promise<string> =
         sendEmailVerification(userCredential.user);
         const user = userCredential.user;
         const docRef = doc(db, 'users', user.uid);
-        await setDoc(docRef, { id: user.uid, name: user.email });
+        await setDoc(docRef, { id: user.uid, email: user.email });
         alert('Usuario Registrado');
         return user.uid;
     } catch (err: { message: string }) {

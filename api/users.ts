@@ -1,5 +1,5 @@
 import { db, getArrayFromCollection } from "./firebase";
-import { doc, getDoc, getDocs, collection, updateDoc, deleteDoc, addDoc, query, where } from "firebase/firestore";
+import { doc, getDoc, getDocs, collection, updateDoc, deleteDoc, query } from "firebase/firestore";
 
 const collectionName = 'users';
 

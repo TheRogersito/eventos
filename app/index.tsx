@@ -1,7 +1,7 @@
 import Access from "../components/Access"
 import { View } from "react-native"
 
-const HomePage = ({ navigation }) => {
+const HomePage = ({ navigation }: { navigation: { push: Function } }) => {
     return (
         <View style={{
             flex: 1,

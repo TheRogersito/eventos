@@ -1,32 +1,32 @@
 import { useState } from "react";
 import { signIn } from "../api/access";
-import { View, Text, Pressable } from "react-native";
-import { InputLogin, GrayBox, RegisterTitle } from './styles/loginStyles';
+import { Text, Pressable } from "react-native";
+import { InputLogin, GrayBox, RegisterTitle, LoginButton } from './styles/LoginStyles';
 import { useUserContext } from "../providers/UserProvider";
 import { getUserById } from '../api/users';
-import { router } from 'expo-router';
 
-const Login = ({ navigation }) => {
+const Login = ({ navigation }: { navigation: { push: Function } }) => {
     const [userName, setUsername] = useState('')
     const [userPw, setPwname] = useState('')
     const [, setUser] = useUserContext()
 
     const loginAccess = async (userName: string, userPw: string) => {
-        try {
-            const uid = signIn(userName, userPw)
-            await setUser(getUserById(uid))
-            navigation.push('mainPage')
-        } catch (e) {
-            console.log(e)
+        const uid = await signIn(userName, userPw)
+        console.log(uid)
+        if (uid.substr(0, 8) === "Firebase") {
+            alert("Error al iniciar sesión")
+        } else {
+            getUserById(uid).then((res: any) => setUser(res))
+            await navigation.push('mainPage')
         }
     }
 
     return (
         <GrayBox>
             <RegisterTitle>Login</RegisterTitle>
-            <InputLogin value={userName} onChangeText={e => setUsername(e)} />
-            <InputLogin value={userPw} onChangeText={e => setPwname(e)} />
-            <Pressable onPress={() => loginAccess(userName, userPw)}><Text>Entrar</Text></Pressable>
+            <InputLogin placeholder="email" value={userName} onChangeText={e => setUsername(e)} />
+            <InputLogin placeholder="password" secureTextEntry={true} value={userPw} onChangeText={e => setPwname(e)} />
+            <LoginButton onPress={() => loginAccess(userName, userPw)}><Text>Entrar</Text></LoginButton>
         </GrayBox>
     );
 };

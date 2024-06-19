@@ -1,11 +1,14 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, View } from 'react-native';
+import UserProvider from './providers/UserProvider';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <StatusBar style="auto" />
-    </View>
+    <UserProvider>
+      <View style={styles.container}>
+        <StatusBar style="auto" />
+      </View>
+    </UserProvider>
   );
 }
 

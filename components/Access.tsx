@@ -3,8 +3,8 @@ import Register from "./Register";
 import Login from "./Login";
 import { Pressable, Text } from "react-native";
 
-const Access = ({ navigation }) => {
-    const [register, setRegister] = useState(true)
+const Access = ({ navigation }: { navigation: { push: Function } }) => {
+    const [register, setRegister] = useState(false)
 
     return (
         <>
