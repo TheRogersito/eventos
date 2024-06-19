@@ -1,10 +1,22 @@
-import { createContext, useState, useContext } from 'react';
+import { createContext, useState, useContext, ReactNode } from 'react';
 
-const AppContext = createContext([{}, (userData) => { }])
-export const useUserContext = () => useContext(AppContext);
+interface User {
+    // Define properties of the user object as needed
+    [key: string]: any;
+}
+type UserContextType = [User, React.Dispatch<React.SetStateAction<User>>];
 
-const UserProvider = ({ children }: { children: any }) => {
-    const [user, setUser] = useState({});
+const AppContext = createContext<UserContextType | undefined>(undefined);
+export const useUserContext = (): UserContextType => {
+    const context = useContext(AppContext);
+    if (context === undefined) {
+        throw new Error('useUserContext must be used within a UserProvider');
+    }
+    return context;
+};
+
+const UserProvider = ({ children }: { children: ReactNode }) => {
+    const [user, setUser] = useState<User>({});
     return (
         <AppContext.Provider value={[user, setUser]}>
             {children}

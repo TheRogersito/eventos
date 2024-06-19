@@ -1,4 +1,4 @@
-import { Text, View } from "react-native";
+import { Pressable, Text, View } from "react-native";
 import styled from "styled-components";
 import { Link } from "expo-router";
 
@@ -10,10 +10,16 @@ export const Container = styled(View)`
 
 export const ProfileLink = styled(Link)`
     position: absolute;
-    top:200px;
-    height: 50px;
+    top:50px;
+    right:10px;
+    height: 40px;
     aspect-ratio: 1/1;
-    background-color: red;
+    border: 1px solid;
+    border-radius: 99px;
+    padding: 8px;
+    text-align: center;
+    font-size: 16px;
+    z-index: 2;
 `
 
 export const Title = styled(Text)`

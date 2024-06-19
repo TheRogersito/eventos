@@ -1,7 +1,7 @@
 import { Text, View } from "react-native"
 import Events from "../components/Events"
 
-const MainPage = () => {
+const MainPage = ({ navigation }: { navigation: { push: Function } }) => {
     return (
         <View style={{
             flex: 1,
@@ -9,7 +9,7 @@ const MainPage = () => {
             alignItems: 'center',
             justifyContent: 'center'
         }}>
-            <Events />
+            <Events navigation={navigation} />
         </View>
     )
 }

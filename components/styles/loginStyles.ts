@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { TextInput, View, Text } from "react-native";
+import { TextInput, View, Text, Pressable } from "react-native";
 
 export const GrayBox = styled(View)`
 background-color: lightgray;
@@ -18,4 +18,12 @@ width: 200px;
 height: 25px;
 border: 1px solid;
 margin: 4px;
+`
+
+export const LoginButton = styled(Pressable)`
+border-radius: 16px;
+border: 1px solid;
+text-align: center;
+margin: 4px;
+padding: 4px;
 `
