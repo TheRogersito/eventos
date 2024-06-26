@@ -4,6 +4,8 @@ import { Input, Label } from "./styles/UserInput"
 
 type Props = {
     label: string
+    value: string
+    onChange: (text: string) => any
     type?: KeyboardType
     max?: number
     lines?: number
@@ -11,14 +13,13 @@ type Props = {
 
 const UserInput = ({
     label,
+    value,
+    onChange,
     type = "default",
     max = 40,
     lines = 1
 }: Props) => {
-    const [value, setValue] = useState('')
     const [hasFocus, setHasFocus] = useState(false)
-
-    const onChange = (text: string) => setValue(text)
 
     const onFocus = () => setHasFocus(true)
     const onBlur = () => setHasFocus(false)
