@@ -3,7 +3,6 @@ import { ProfileBox, ProfileBackLink, ProfileTitle, ProfileSection } from '../co
 
 const Profile = () => {
     const [user] = useUserContext()
-    console.log(user)
 
     return (
         <>

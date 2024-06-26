@@ -4,27 +4,21 @@ import EventItem from "./EventItem"
 import { Container, Title } from "./styles"
 import { NewEventLink, ProfileLink, InvitationsLink } from './styles/Events';
 import type { AppEvent } from "../types"
-import { getEvents, getInviationsByUser } from '../api/events';
+import { getEvents, getEventsByUser } from '../api/events';
 import { useUserContext } from "../providers/UserProvider";
 
 const Events = () => {
     const [events, setEvents] = useState<AppEvent[]>([])
-    const [invitations, setInvitations] = useState([])
     const [user] = useUserContext()
 
     useEffect(() => {
         console.log(user)
         getEventList()
-        getInvitations(user.id)
-    }, [])
+    }, [user])
 
     const getEventList = async () => {
-        const list = await getEvents()
+        const list = await getEventsByUser(user.id)
         setEvents(list)
-    }
-    const getInvitations = async (user: string) => {
-        const list = await getInviationsByUser(user)
-        setInvitations(list)
     }
 
     return (
@@ -40,7 +34,7 @@ const Events = () => {
                 <NewEventLink href='/create'>
                     Create event
                 </NewEventLink>
-                <InvitationsLink href={{ pathname: "/invitations", params: { invitations: invitations } }}>
+                <InvitationsLink href={{ pathname: "/invitations" }}>
                     Invitations
                 </InvitationsLink>
             </Container>

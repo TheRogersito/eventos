@@ -1,4 +1,4 @@
-import { addDoc, collection, getDocs, query } from "firebase/firestore"
+import { addDoc, collection, getDocs, query, doc, updateDoc } from 'firebase/firestore';
 import { db, getArrayFromCollection } from "./firebase"
 
 const collectionName = 'events'
@@ -14,11 +14,21 @@ export const getEvents = async () => {
     return getArrayFromCollection(res)
 }
 
-export const getInviationsByUser = async (user: string) => {
+export const getEventsByUser = async (userId: string) => {
     const res = await getDocs(query(colRef))
-    console.log(user, "feofeofeo")
     const allEvents = getArrayFromCollection(res)
-    const filteredEvents = allEvents.filter((event: { invited: string[] }) => event.invited.includes(user))
-    console.log(filteredEvents, "Dentro de la funcion")
+    const filteredEvents = allEvents.filter((event: { attendants: string[] }) => event.attendants.includes(userId))
     return filteredEvents
+}
+
+export const getInviationsByUser = async (userId: string) => {
+    const res = await getDocs(query(colRef))
+    const allEvents = getArrayFromCollection(res)
+    const filteredEvents = allEvents.filter((event: { invited: string[] }) => event.invited.includes(userId))
+    return filteredEvents
+}
+
+export const updateInvitation = async (updatedinvitation: {}, inviationId: string) => {
+    const docRef = doc(db, collectionName, inviationId);
+    await updateDoc(docRef, updatedinvitation)
 }
