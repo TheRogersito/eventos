@@ -12,10 +12,6 @@ const CreateEvent = () => {
                 <UserInput label="Nombre del evento" />
                 <DateInput label="Fecha" />
                 <UserInput label="Ubicación" />
-                <UserInput
-                    label="Descripción"
-                    lines={5}
-                />
                 <UserInput label="Invitados" />
             </InputWrapper>
         </Container>

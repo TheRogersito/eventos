@@ -11,6 +11,7 @@ export const Input = styled(TextInput) <{
     padding: 10px;
     align-items: start;
     justify-content: start;
+    color: black;
 `
 
 export const Label = styled(Text) <{
