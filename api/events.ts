@@ -28,7 +28,7 @@ export const getInvitationsByUser = async (userId: string) => {
     return filteredEvents
 }
 
-export const updateInvitation = async (updatedinvitation: {}, inviationId: string) => {
-    const docRef = doc(db, collectionName, inviationId);
+export const updateInvitation = async (updatedinvitation: {}, invitationId: string) => {
+    const docRef = doc(db, collectionName, invitationId);
     await updateDoc(docRef, updatedinvitation)
 }
