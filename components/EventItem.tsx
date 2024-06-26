@@ -1,14 +1,18 @@
-import { Pressable, Text } from "react-native"
 import type { AppEvent } from "../types.d.ts"
-import { EventPress, EventText, EventWrapper } from "./styles/EventItem.ts"
+import { EventLink, EventText, EventWrapper } from "./styles/EventItem.ts"
 
-const EventItem = ({ item: { name } }: { item: AppEvent }) => {
+const EventItem = ({ item }: { item: AppEvent }) => {
     return (
         <EventWrapper>
-            <EventText>{name}</EventText>
-            <EventPress>
-                <EventText>Join</EventText>
-            </EventPress>
+            <EventText>{item.name}</EventText>
+            <EventLink
+                href={{
+                    pathname: "/eventPage",
+                    params: item,
+                }}
+            >
+                Info
+            </EventLink>
         </EventWrapper>
     )
 }

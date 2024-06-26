@@ -1,4 +1,3 @@
-import { View } from "react-native"
 import UserInput from "../components/UserInput"
 import { Container, Title } from "../components/styles"
 

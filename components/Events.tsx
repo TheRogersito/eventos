@@ -4,7 +4,7 @@ import EventItem from "./EventItem"
 import { Container, Title } from "./styles"
 import { NewEventLink, ProfileLink, InvitationsLink } from './styles/Events';
 import type { AppEvent } from "../types"
-import { getEvents, getEventsByUser } from '../api/events';
+import { getEventsByUser } from '../api/events';
 import { useUserContext } from "../providers/UserProvider";
 
 const Events = () => {

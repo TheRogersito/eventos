@@ -32,3 +32,9 @@ export const updateInvitation = async (updatedinvitation: {}, inviationId: strin
     const docRef = doc(db, collectionName, inviationId);
     await updateDoc(docRef, updatedinvitation)
 }
+
+export const createItemForEvent = async (eventId: string, data: unknown) => {
+    const colRef = collection(db, collectionName, eventId, 'items')
+    const res = await addDoc(colRef, data)
+    return res.id
+}

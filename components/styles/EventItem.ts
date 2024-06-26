@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import { View, Text, Pressable } from "react-native";
+import { View, Text } from "react-native";
+import { Link } from "expo-router";
 
 export const EventWrapper = styled(View)`
     border: 1px solid black;
@@ -15,8 +16,9 @@ export const EventText = styled(Text)`
     font-size: 18px;
 `
 
-export const EventPress = styled(Pressable)`
+export const EventLink = styled(Link)`
     border: 1px solid gray;
     border-radius: 5px;
     padding: 5px;
+    z-index: 2;
 `
