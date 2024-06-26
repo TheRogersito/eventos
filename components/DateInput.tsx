@@ -1,23 +1,25 @@
 import { useState } from "react"
-import { Pressable, View, Text } from "react-native"
+import { Pressable, View } from "react-native"
 import { Input, Label } from "./styles/UserInput"
 import DateTimePicker, { DateTimePickerEvent } from '@react-native-community/datetimepicker'
 import parseDateToStr from "../utils/parseDateToString"
 
 type Props = {
     label: string
+    date: Date
+    onChange: (event: DateTimePickerEvent, selectedDate: Date | undefined) => void
 }
 
 const DateInput = ({
-    label
+    label,
+    date,
+    onChange
 }: Props) => {
-    const [date, setDate] = useState(new Date)
     const [open, setOpen] = useState(false)
 
-    const onChange = (_event: DateTimePickerEvent, selectedDate: Date | undefined) => {
+    const handleChange = (_event: DateTimePickerEvent, selectedDate: Date | undefined) => {
+        onChange(_event, selectedDate)
         setOpen(false)
-        if (selectedDate === undefined) return
-        setDate(selectedDate)
     }
 
     return (
@@ -37,7 +39,7 @@ const DateInput = ({
                 <DateTimePicker
                     value={date}
                     is24Hour={true}
-                    onChange={onChange}
+                    onChange={handleChange}
                 />
             )}
         </View>
