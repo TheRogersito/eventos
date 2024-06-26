@@ -7,7 +7,7 @@ export const Input = styled(TextInput) <{
 }>`
     border: ${props => props.hasFocus ? '2px' : '1px'} solid black;
     border-radius: 10px;
-    height: calc(40px * ${props => props.numberOfLines});
+    height: ${props => props.numberOfLines === 1 && '40px'};
     padding: 10px;
     align-items: start;
     justify-content: start;
