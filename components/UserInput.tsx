@@ -39,7 +39,7 @@ const UserInput = ({
                 cursorColor={'#000000'}
                 onFocus={onFocus}
                 onBlur={onBlur}
-                textAlignVertical="top"
+                textAlignVertical={lines > 1 ? "top" : "center"}
             />
         </View>
     )
