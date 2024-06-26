@@ -21,7 +21,7 @@ export const getEventsByUser = async (userId: string) => {
     return filteredEvents
 }
 
-export const getInviationsByUser = async (userId: string) => {
+export const getInvitationsByUser = async (userId: string) => {
     const res = await getDocs(query(colRef))
     const allEvents = getArrayFromCollection(res)
     const filteredEvents = allEvents.filter((event: { invited: string[] }) => event.invited.includes(userId))

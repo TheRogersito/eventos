@@ -1,5 +1,5 @@
 import { InvitationsBox, InvitationsBackLink, InvitationsTitle } from '../components/styles/Invitations';
-import { getInviationsByUser, updateInvitation } from '../api/events';
+import { getInvitationsByUser, updateInvitation } from '../api/events';
 import { useEffect, useState } from 'react';
 import { useUserContext } from '../providers/UserProvider';
 import { Text, Pressable } from 'react-native';
@@ -11,7 +11,7 @@ const Invitations = () => {
     const [invitations, setInvitations] = useState([]);
 
     const getInvitations = async (user: string) => {
-        const list = await getInviationsByUser(user)
+        const list = await getInvitationsByUser(user)
         setInvitations(list)
     }
 
