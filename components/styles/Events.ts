@@ -1,4 +1,4 @@
-import { Pressable, Text, View } from "react-native";
+import { Text, View } from "react-native";
 import styled from "styled-components";
 import { Link } from "expo-router";
 
@@ -36,4 +36,16 @@ export const NewEventLink = styled(Link)`
     border-radius: 99px;
     border: 1px solid black;
     background-color: white;
+`
+
+export const InvitationsLink = styled(Link)`
+    position: absolute;
+    bottom: 70px;
+    left: 0;
+    padding: 10px;
+    font-size: 20px;
+    border-radius: 99px;
+    border: 1px solid black;
+    background-color: white;
+    display: 'none';
 `

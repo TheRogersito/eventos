@@ -32,3 +32,4 @@ const Login = ({ navigation }: { navigation: { push: Function } }) => {
 };
 
 export default Login;
+

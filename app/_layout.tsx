@@ -3,6 +3,7 @@ import HomePage from './index';
 import MainPage from './mainPage';
 import CreateEvent from './create';
 import Profile from './profile';
+import Invitations from './invitations';
 import UserProvider from '../providers/UserProvider';
 
 const Stack = createStackNavigator();
@@ -17,6 +18,7 @@ const _layout = () => {
                 <Stack.Screen name='mainPage' component={MainPage} />
                 <Stack.Screen name='create' component={CreateEvent} />
                 <Stack.Screen name='profile' component={Profile} />
+                <Stack.Screen name='invitations' component={Invitations} />
             </Stack.Navigator>
         </UserProvider>
     );

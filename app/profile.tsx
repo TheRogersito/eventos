@@ -1,4 +1,3 @@
-import { View, Text } from "react-native";
 import { useUserContext } from "../providers/UserProvider";
 import { ProfileBox, ProfileBackLink, ProfileTitle, ProfileSection } from '../components/styles/Profile';
 
