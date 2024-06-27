@@ -1,4 +1,4 @@
-import { addDoc, collection, getDocs, query, doc, updateDoc } from 'firebase/firestore';
+import { addDoc, collection, getDocs, query, doc, updateDoc, orderBy } from 'firebase/firestore';
 import { db, getArrayFromCollection } from "./firebase"
 
 const collectionName = 'events'
@@ -37,4 +37,10 @@ export const createItemForEvent = async (eventId: string, data: unknown) => {
     const colRef = collection(db, collectionName, eventId, 'items')
     const res = await addDoc(colRef, data)
     return res.id
+}
+
+export const getItemsfromEvent = async (eventId: string) => {
+    const colRef = collection(db, collectionName, eventId, 'items')
+    const res = await getDocs(query(colRef, orderBy('createdAt', 'desc')))
+    return getArrayFromCollection(res)
 }
